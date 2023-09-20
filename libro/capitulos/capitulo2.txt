@@ -1,0 +1,2 @@
+1- Hacer cambios en el repositorio
+2- Añadir los cambios a la zona de intercambio temporal.[A[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D.[B[B[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D3- Hacer un commit de los cambios.
