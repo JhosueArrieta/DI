@@ -1,8 +1,9 @@
+##en las funciones no puede llevar tilde el nombre de las mismas.
 def suma(num1, num2):
     return num1 + num2
 def resta(num1, num2):
     return num1 - num2
-def multiplicacion(num1, num2):
+def multiplicacion(num1,num2):
     return num1 * num2
 def division(num1, num2):
     if num2 != 0:
@@ -10,32 +11,3 @@ def division(num1, num2):
     else:
         return "Error: división por cero"
     
-operaciones = {
-    1: "suma",
-    2: "resta",
-    3: "multiplicacion",
-    4: "división"
-}
-##Hacer commit en clase, acuerdate
-opcion = (input("Selecciona operación a realizar. (suma,resta,multiplicación,división)"))
-while (opcion != "suma") & (opcion != "resta") & (opcion != "multiplicación") & (opcion != "división"):
-    opcion = input("Elige una de las 4 operaciones matemáticas básicas: ")
-
-if opcion == operaciones[1]:
-    num1 = float(input("Ingresa el primer número: "))
-    num2 = float(input("Ingresa el segundo número: "))
-    print (suma(num1,num2))
-
-elif opcion == operaciones [2]:
-    num1 = float(input("Ingresa el primer número: "))
-    num2 = float(input("Ingresa el segundo número: "))
-    print (resta(num1,num2))
-
-elif opcion == operaciones[3]:
-    num1 = float(input("Ingresa el primer número: "))
-    num2 = float(input("Ingresa el segundo número: "))
-    print(multiplicacion(num1,num2))
-else:
-    num1 = float(input("Ingresa el primer número: "))
-    num2 = float(input("Ingresa el segundo número: "))
-    print(division(num1,num2))
