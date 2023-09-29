@@ -1,65 +1,38 @@
-opcion = " "
-contCorrectas  = 0
-adivinanzas = {
-    1: "Que tiene MESSI que no tiene CR7?",
-    2: "Que tiene iago en la panza?",
-    3: "Que buga tiene victo jose?"
-} 
+import random
+##pongo como clave de opciones y respuestas la propia adivinanza para asi poder trabajar sin el problema 
+##que me da con claves de 1: 2: 3: 
+adivinanzas = [
+    "Que tiene MESSI que no tiene CR7?",
+    "Que tiene iago en la panza?",
+    "Que buga tiene victo jose?"
+]
 opciones = {
-    1: " a. 5 balones de oro \n b. Un mundial \n c. Humildad ",
-    2: " a. Empanadillas \n b. Yogures \n c. El ombligo ",
-    3: " a. Lamborghini \n b. Fiat Multipla \n c. Peugeot 206"
+    "Que tiene MESSI que no tiene CR7?": " a. 5 balones de oro \n b. Un mundial \n c. Humildad ",
+    "Que tiene iago en la panza?": " a. Empanadillas \n b. Yogures \n c. El ombligo ",
+    "Que buga tiene victo jose?": " a. Lamborghini \n b. Fiat Multipla \n c. Peugeot 206"
 }
 respuestas = {
-    1: "b",
-    2: "a",
-    3: "c"
+    "Que tiene MESSI que no tiene CR7?": "b",
+    "Que tiene iago en la panza?": "a",
+    "Que buga tiene victo jose?": "c"
 }
 
-print("\n\tPrimera adivinanza")
+adivinanzas_aleatorias = random.sample(adivinanzas, 2)
 
-print (adivinanzas[1])
-print (opciones[1])
-opcion = input("Que opcion es correcta?")
-while (opcion != 'a') & (opcion != 'b') & (opcion != 'c'):
-    opcion=input("Elige entre a/b/c ")
-if opcion == respuestas[1] :
-    print ("Correcto, + 10 puntos")
-    contCorrectas = contCorrectas + 10
-else :
-    print ("Incorrecto, - 5 puntos")
-    contCorrectas = contCorrectas -5 
+for adivinanza in adivinanzas_aleatorias:
+    opcion = opciones[adivinanza]
+    respuesta_correcta = respuestas[adivinanza]
 
-print ( "\n\tSegunda adivinanza")
+    print(adivinanza)
+    print(opcion)
 
-print (adivinanzas[2])
-print (opciones[2])
-opcion = input("Que opcion es correcta?")
-while (opcion != 'a') & (opcion != 'b') & (opcion != 'c'):
-    opcion=input("Elige entre a/b/c ")
-if opcion == respuestas[2] :
-    print ("Correcto, + 10 puntos")
-    contCorrectas = contCorrectas + 10
-else :
-    print ("Incorrecto, - 5 puntos")
-    contCorrectas = contCorrectas -5 
+    respuesta = input("Ingrese la opción correcta (a, b o c): ")
 
-print ( "\n\tTercera adivinanza")
+    if respuesta == respuesta_correcta:
+        print("Correcto, has acertado")
+    else:
+        print("Incorrecto, te has equivocado")
 
-print (adivinanzas[3])
-print (opciones[3])
-opcion = input("Que opcion es correcta?")
-while (opcion != 'a') & (opcion != 'b') & (opcion != 'c'):
-    opcion=input("Elige entre a/b/c ")
-if opcion == respuestas[3] :
-    print ("Correcto, + 10 puntos")
-    contCorrectas = contCorrectas + 10
-else :
-    print ("Incorrecto, - 5 puntos")
-    contCorrectas = contCorrectas -5 
-##para concatenar strings con ints utilizamos str(variable numérica) como sql
-##hacer en clase o casa git add * git commit.. y git push
-print("Tu puntuación es : " + str(contCorrectas))
 
 
 
