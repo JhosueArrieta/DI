@@ -13,3 +13,4 @@ def show_yes_window():
     label.pack()
     #permitimos poder cerrar la ventana creada anteriormente
     yes_root.mainloop()
+    
