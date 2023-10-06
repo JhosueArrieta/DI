@@ -13,6 +13,8 @@ class MainWindow():
     def __init__(self,root):
         #inicializamos root
         self.root = root
+        #añadimos un título
+        self.root.title("Ejercicio Nº 3")
         #frame sirve para empaquetar widgets como etiquetas,botones ...
         self.frame = ttk.Frame(self.root)
         self.frame.pack()
