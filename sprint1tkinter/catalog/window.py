@@ -32,6 +32,7 @@ class MainWindow():
             label = ttk.Label(root,image=cell.image_tk, text=cell.title,compound=tk.BOTTOM)
             #dicha etiqueta se coloca en la fila i y columna 0
             label.grid(row=i,column=0)
+            #sirve para cuando clicamos encima de una imagen se nos abra otra ventana en la cual sale la img su titulo y su descripcion
             label.bind("<Button-1>", lambda event, cell = cell : self.onButtonClicked(cell))
     
             
