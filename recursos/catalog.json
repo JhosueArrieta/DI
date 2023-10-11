@@ -1,0 +1,29 @@
+[
+    {
+        "name":"León",
+        "description":"El león es un majestuoso felino conocido por su melena y su poderío. Es el rey de la selva y simboliza fuerza y liderazgo. ",
+        "image_url":"https://raw.githubusercontent.com/JhosueArrieta/DI/main/sprint1tkinter/catalog/data/edited/le%C3%B3n.jpg"
+    },
+    {
+        "name":"Tigre",
+        "description":"El tigre de Bengala es un felino impresionante y poderoso, con rayas distintivas y una presencia imponente.",
+        "image_url":"https://raw.githubusercontent.com/JhosueArrieta/DI/main/sprint1tkinter/catalog/data/edited/tigre_de_bengala.jpg"
+    },
+    {
+        "name":"Puma_negro",
+        "description":"El puma negro, también conocido como pantera negra, es un felino de gran elegancia y misterio. Su pelaje oscuro y su mirada penetrante lo hacen un verdadero enigma de la naturaleza. ",
+        "image_url":"https://raw.githubusercontent.com/JhosueArrieta/DI/main/sprint1tkinter/catalog/data/edited/puma_negro.jpg"
+    },
+    {
+        "name":"Oso_pardo",
+        "description":"El oso pardo es un imponente mamífero que habita en diversos ecosistemas. Con su pelaje grueso y su poderosa presencia, es un símbolo de fuerza y resistencia en la naturaleza.",
+        "image_url":"https://raw.githubusercontent.com/JhosueArrieta/DI/main/sprint1tkinter/catalog/data/edited/oso_pardo.jpg"
+    },
+    {
+        "name":"Águila_real",
+        "description":"El águila real es un majestuoso ave rapaz, con una envergadura impresionante y una mirada aguda. Su vuelo elegante y su poderoso pico la convierten en un símbolo de libertad y grandeza.",
+        "image_url":"https://raw.githubusercontent.com/JhosueArrieta/DI/main/sprint1tkinter/catalog/data/edited/%C3%A1guila_real.jpg"
+    }
+
+
+]
