@@ -1,5 +1,7 @@
 import threading
 import tkinter as tk
+import requests
+from window import MainWindow
 class loading:
     #iniciamos constructor
     def __init__(self,root):
@@ -25,8 +27,8 @@ class loading:
 
         self.update_progress_circle()
 
-        #self.thread = threading.Thread(target=self.fetch_json_data)
-        #self.thread.start()
+        self.thread = threading.Thread(target=self.fetch_json_data)
+        self.thread.start()
 
     def draw_progress_circle(self, progress):
         #eimina el objeto dibujado que tiene la tag asociada
@@ -45,6 +47,21 @@ class loading:
 
         self.draw_progress_circle(self.progress)
         self.root.after(100, self.update_progress_circle)
+    #esto lee el json  y si da exito guardamos el json en json_data cerrando asi la ventana de carga y mostrando la principal
+    def fetch_json_data(self):
+        response = requests.get("https://raw.githubusercontent.com/JhosueArrieta/DI/main/recursos/catalog.json")
+        if response.status_code == 200:
+            json_data = response.json()
+            self.root.quit()
+            launch_main_window(json_data)
+
+def launch_main_window(json_data):
+
+    root = tk.Tk()
+    app = MainWindow(root,json_data)
+    root.mainloop()
+    
+
 
               
 
