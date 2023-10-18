@@ -5,7 +5,11 @@ from window import MainWindow
 class loading:
     #iniciamos constructor
     def __init__(self,root):
+       
         self.root = root
+         #para que no de error en creamos dicha variable
+        self.finished = False
+        self.json_data=[]
         #titulo de la ventana
         self.root.title("Cargando...")
         #dimensiones de la ventana
@@ -29,6 +33,9 @@ class loading:
 
         self.thread = threading.Thread(target=self.fetch_json_data)
         self.thread.start()
+        #comprobamos que el hilo esta activo y si es asi comprobamos con la funcion creada
+        if self.thread.is_alive():
+            self.check_thread()
 
     def draw_progress_circle(self, progress):
         #eimina el objeto dibujado que tiene la tag asociada
@@ -44,19 +51,23 @@ class loading:
             self.progress += 14.20
         else:
             self.progress = 0
-
+    
         self.draw_progress_circle(self.progress)
-        self.root.after(100, self.update_progress_circle)
+        self.root.after(100,self.update_progress_circle)
     #esto lee el json  y si da exito guardamos el json en json_data cerrando asi la ventana de carga y mostrando la principal
     def fetch_json_data(self):
         response = requests.get("https://raw.githubusercontent.com/JhosueArrieta/DI/main/recursos/catalog.json")
         if response.status_code == 200:
-            json_data = response.json()
-            self.root.quit()
-            launch_main_window(json_data)
-
+            self.json_data = response.json()
+            self.finished=True
+    #comprueba si el hilo finaliza o no, si lo hace instanciamos main_window
+    def check_thread(self):
+        if self.finished:
+            self.root.destroy()
+            launch_main_window(self.json_data)
+        else:
+            self.root.after(100, self.check_thread)
 def launch_main_window(json_data):
-
     root = tk.Tk()
     app = MainWindow(root,json_data)
     root.mainloop()

@@ -6,8 +6,8 @@ def detail_window (cell):
     #explicacion de Carlos 
     root = tk.Toplevel()
     #añadimos las etiquetas correspondientes que pide el ejercicio
-    label1 = ttk.Label(root, image=cell.image_tk)
-    label2 = ttk.Label(root, text=cell.title)
+    label1 = ttk.Label(root, image=cell.Image_tk)
+    label2 = ttk.Label(root, text=cell.name)
     label3 = ttk.Label(root, text=cell.desc)
     #empaquetamos las etiquetas
     label1.pack()

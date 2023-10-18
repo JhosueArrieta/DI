@@ -1,49 +1,36 @@
 from tkinter import ttk
 import tkinter as tk
 from cell import Cell
-from PIL import Image, ImageTk
 from detail_window import detail_window
-#######################
-import requests
-from PIL import Image , ImageTk
-from io import BytesIO
-import json
-import threading
+from PIL import Image, ImageTk
+
 class MainWindow():
-     #def onButtonClicked(self, cell):
-     #  detail_window(cell)
+    def onButtonClicked(self, cell):
+       detail_window(cell)
+
     def __init__(self,root,json_data):
         #inicializamos root
         self.root = root
         #lista vacia para guardar los datos
-        self.cells =[]
-        #convertir json a lista de diccionarios
-      #lista_datos = json.loads(json_data)
+        cells =[]
         #recorrer json y añadir sus datos a las celdas de la lista vacía
         for animales in json_data:
             name = animales.get("name")
             descripcion = animales.get("description")
             image_url = animales.get("image_url")
-            self.thread = threading.Thread(target=self.load_image_from_url)
-            self.thread.start()
-
-            animal_data = {
-                "name": name,
-                "description": descripcion,
-                "image_url": image_url
-            }
-
-            self.cells.append(animal_data)
+            #guardar en una celda los datos del json
+            cell = Cell(name,image_url,descripcion)
+            #añadimos la celda a la lista 
+            cells.append(cell)
+        #recorremos la lista de celdas para que se muestran en la ventana principal
+        for i, cell in enumerate (cells):
+            label = ttk.Label(root,image=cell.Image_tk, text=cell.name,compound=tk.BOTTOM)
+            label.grid(row=i,column=0)
+            #con esto si clickamos en una imagen nos lleva a otra ventana con su nombre y descripcion y foto
+            label.bind("<Button-1>", lambda event, cell = cell : self.onButtonClicked(cell))
+            
         
-        for animal in self.cells:
-            name = animal.get("name")
-            description = animal.get("description")
-            image_url = animal.get("image_url")
-
-    def load_image_from_url (self,url):
-        response = requests.get(url)
-        img_data = Image.open(BytesIO(response.content))
-        img = ImageTk.PhotoImage(img_data)
+ 
     
 
 
