@@ -4,10 +4,12 @@ from cell import Cell
 from detail_window import detail_window
 from PIL import Image, ImageTk
 from detail_window import detail_window
+from tkinter import messagebox
 
 class MainWindow():
-    #def onButtonClicked(cell):
-     #  detail_window(cell)
+    #accion que se ejecuta al clicar en ayuda
+    def onButtonClicked(self):
+       messagebox.showinfo("Acerca del desarrollador","Messi, the best player in the world.")
 
     def __init__(self,root,json_data):
         #inicializamos root
@@ -33,6 +35,20 @@ class MainWindow():
             label.grid(row=i,column=0)
             #con esto si clickamos en una imagen nos lleva a otra ventana con su nombre y descripcion y foto
             label.bind("<Button-1>", lambda event, cell = cell : detail_window(cell))
+        #creamos la barra de menus 
+        barra_menus = tk.Menu()
+        menu_archivo = tk.Menu(barra_menus, tearoff=False)
+        menu_archivo.add_command(
+            #indicamos la etiqueta que sale en la ventana principal
+                label="Acerca de ",
+                #inddicamos que accion realiza al clicar en ayuda
+                command=self.onButtonClicked
+                )
+        #añadimos a la barra menus
+        barra_menus.add_cascade(menu=menu_archivo, label="Ayuda")
+        root.config(menu=barra_menus)
+        #cerramos el bucle
+        root.mainloop()
             
         
  
