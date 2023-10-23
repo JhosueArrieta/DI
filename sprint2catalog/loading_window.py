@@ -7,6 +7,10 @@ class loading:
     def __init__(self,root):
        
         self.root = root
+        #Ajustamos tamaños de las ventanas con las siguientes funciones
+        x = (self.root.winfo_screenwidth() - self.root.winfo_reqwidth()) / 2
+        y = (self.root.winfo_screenheight() - self.root.winfo_reqheight()) / 2
+        self.root.geometry(f"+{int(x)}+{int(y)}")
          #para que no de error en creamos dicha variable
         self.finished = False
         self.json_data=[]
@@ -67,6 +71,8 @@ class loading:
             launch_main_window(self.json_data)
         else:
             self.root.after(100, self.check_thread)
+        
+
 def launch_main_window(json_data):
     root = tk.Tk()
     app = MainWindow(root,json_data)

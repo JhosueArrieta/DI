@@ -13,5 +13,9 @@ def detail_window (cell):
     label1.pack()
     label2.pack()
     label3.pack()
+    #Ajustamos tamaños de las ventanas con las siguientes funciones
+    x = (root.winfo_screenwidth() - root.winfo_reqwidth()) / 2
+    y = (root.winfo_screenheight() - root.winfo_reqheight()) / 2
+    root.geometry(f"+{int(x)}+{int(y)}")
     #cerramos bucle
     root.mainloop()

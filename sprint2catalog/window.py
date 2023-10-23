@@ -3,14 +3,19 @@ import tkinter as tk
 from cell import Cell
 from detail_window import detail_window
 from PIL import Image, ImageTk
+from detail_window import detail_window
 
 class MainWindow():
-    def onButtonClicked(self, cell):
-       detail_window(cell)
+    #def onButtonClicked(cell):
+     #  detail_window(cell)
 
     def __init__(self,root,json_data):
         #inicializamos root
         self.root = root
+        #Ajustamos tamaños de las ventanas con las siguientes funciones
+        x = (self.root.winfo_screenwidth() - self.root.winfo_reqwidth()) / 2
+        y = (self.root.winfo_screenheight() - self.root.winfo_reqheight()) / 2
+        self.root.geometry(f"+{int(x)}+{int(y)}")
         #lista vacia para guardar los datos
         cells =[]
         #recorrer json y añadir sus datos a las celdas de la lista vacía
@@ -27,7 +32,7 @@ class MainWindow():
             label = ttk.Label(root,image=cell.Image_tk, text=cell.name,compound=tk.BOTTOM)
             label.grid(row=i,column=0)
             #con esto si clickamos en una imagen nos lleva a otra ventana con su nombre y descripcion y foto
-            label.bind("<Button-1>", lambda event, cell = cell : self.onButtonClicked(cell))
+            label.bind("<Button-1>", lambda event, cell = cell : detail_window(cell))
             
         
  
