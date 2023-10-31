@@ -10,8 +10,10 @@ import android.widget.Button;
 import android.widget.Toast;
 
 public class CatalogActivity extends AppCompatActivity {
+    //Inicializamos las variables del boton y del context
+    //seguir comentando
     private Button firstButton;
-    private Context context;
+    private Context context = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
