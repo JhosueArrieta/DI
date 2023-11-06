@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetailActivity">
+
+    <TextView
+        android:id="@+id/textTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="15dp"
+        android:text="León"
+        android:textSize="40dp"
+        app:layout_constraintBottom_toTopOf="@+id/firstImage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.64" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/firstImage"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        app:cardCornerRadius="100dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textTitle"
+        android:layout_marginBottom="65dp"
+        android:scaleType="centerCrop">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/leon2" />
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/textDescription"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="55dp"
+        android:layout_marginEnd="16dp"
+        android:text="El león africano es un majestuoso felino que habita en las regiones de África subsahariana. Es conocido por su melena, que varía en color desde el dorado hasta el negro,y es una de las especies de grandes felinos más icónicas del continente. Los leones sonsociales y viven en grupos llamados manadas, donde los machos suelen proteger el territorio y las hembras cazan en grupo. Son carnívoros y cazan presas como cebras, ñus y antílopes. Los leones son símbolos de fuerza y nobleza en la cultura africana."
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/secondButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="me gusta"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.509"
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toBottomOf="@+id/textDescription" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
