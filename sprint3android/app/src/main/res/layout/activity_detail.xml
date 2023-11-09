@@ -14,7 +14,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="15dp"
         app:layout_constraintTop_toTopOf="parent"
-        android:text="título"
+        android:text="León"
         android:textSize="45dp"/>
 
     <androidx.cardview.widget.CardView
@@ -44,7 +44,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:textAlignment="center"
-        android:text="descripción"
+        android:text="El león africano es un majestuoso felino que habita en las regiones de África subsahariana. Es conocido por su melena, que varía en color desde el dorado hasta el negro,y es una de las especies de grandes felinos más icónicas del continente."
         />
     <Button
         android:id="@+id/secondButton"
