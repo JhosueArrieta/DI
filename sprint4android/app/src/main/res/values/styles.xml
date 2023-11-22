@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- res/values/styles.xml -->
+
+<resources>
+    <color name="colorBackground">#F4A735</color>
+    <color name="colorText">#0A0B0A</color>
+
+
+    <style name="MyOtherCatalogTemaPersonalizado" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:windowBackground">@color/colorBackground</item>
+        <item name="android:textColor">@color/colorText</item>
+
+    </style>
+
+</resources>
