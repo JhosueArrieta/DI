@@ -1,11 +1,13 @@
+// MainActivity.java
+
 package com.example.myothercatalog;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -25,22 +27,14 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    // Define adapters
-    private ListAdapter listAdapter;  // Unused variable, can be removed
-    private RecyclerView.Adapter adapter;  // Unused variable, can be removed
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Initialize RecyclerView from the layout
         RecyclerView recyclerView = findViewById(R.id.RecyclerView);
-
-        // Create an instance of the current activity
         Activity activity = this;
 
-        // Create a JSON array request to fetch data from the given URL
         JsonArrayRequest request = new JsonArrayRequest(
                 Request.Method.GET,
                 "https://raw.githubusercontent.com/JhosueArrieta/DI/main/recursos/catalog.json",
@@ -48,10 +42,7 @@ public class MainActivity extends AppCompatActivity {
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        // Create a list to store AnimalData objects
                         List<AnimalData> allTheAnimals = new ArrayList<>();
-
-                        // Loop through the JSON array and create AnimalData objects
                         for (int i = 0; i < response.length(); i++) {
                             try {
                                 JSONObject animal = response.getJSONObject(i);
@@ -62,22 +53,32 @@ public class MainActivity extends AppCompatActivity {
                             }
                         }
 
-                        // Create an instance of the custom adapter and set it to the RecyclerView
                         AnimalRecyclerViewAdapter adapter = new AnimalRecyclerViewAdapter(allTheAnimals, activity);
                         recyclerView.setAdapter(adapter);
                         recyclerView.setLayoutManager(new LinearLayoutManager(activity));
+
+                        // Configurar el oyente de clics después de haber establecido el adaptador y el LayoutManager
+                        adapter.setOnItemClickListener(new AnimalRecyclerViewAdapter.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(int position) {
+                                AnimalData clickedAnimal = allTheAnimals.get(position);
+                                // Iniciar la nueva actividad
+                                Intent intent = new Intent(MainActivity.this, DetailActivity.class);
+                                // Puedes pasar datos adicionales a la nueva actividad si es necesario
+                                // intent.putExtra("clave", valor);
+                                startActivity(intent);
+                            }
+                        });
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        // Handle errors and display a toast message
                         Toast.makeText(activity, error.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 }
         );
 
-        // Create a request queue and add the JSON array request to the queue
         RequestQueue cola = Volley.newRequestQueue(this);
         cola.add(request);
     }
