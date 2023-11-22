@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
                                 // Iniciar la nueva actividad
                                 Intent intent = new Intent(MainActivity.this, DetailActivity.class);
                                 // Puedes pasar datos adicionales a la nueva actividad si es necesario
-                                // intent.putExtra("clave", valor);
+                                intent.putExtra("animal",clickedAnimal);
                                 startActivity(intent);
                             }
                         });
