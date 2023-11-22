@@ -4,12 +4,28 @@
 <resources>
     <color name="colorBackground">#F4A735</color>
     <color name="colorText">#0A0B0A</color>
+    <color name="colorButton">#0A0B0A</color>
 
 
     <style name="MyOtherCatalogTemaPersonalizado" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="android:windowBackground">@color/colorBackground</item>
         <item name="android:textColor">@color/colorText</item>
 
+
+
+    </style>
+    <style name="estiloDA" parent="Widget.AppCompat.Button">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/colorText</item>
+        <item name="android:background">#A4B3AF</item>
+    </style>
+
+    <style name="estiloButtonDA" parent="Widget.AppCompat.Button">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/colorButton</item>
+        <item name="android:background">#1AA520</item>
     </style>
 
 </resources>
